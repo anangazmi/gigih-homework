@@ -1,3 +1,4 @@
+// image, song, artist, button says select
 const data = {
   album: {
     album_type: "album",

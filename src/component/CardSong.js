@@ -1,14 +1,27 @@
 import React from "react";
+import "../App.css";
 
-function Song(props) {
+const Song = ({ image, title, artist, alt }) => {
   return (
     <>
-      <img src={props.image} alt="" />
-      <p>{props.title}</p>
-      <p>{props.artist}</p>
-      <button> Select </button>
+      <table className="card">
+        <tbody>
+          <tr>
+            <td>
+              <img className="Imageopt" src={image} alt={alt} />
+              <h1 className="Text">{title}</h1>
+              <p className="Text">{artist}</p>
+              <div className="Center">
+                <button onClick={alert} className="Button">
+                  Select
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
-}
+};
 
 export default Song;
