@@ -11,11 +11,6 @@ const Song = ({ image, title, artist, alt }) => {
               <img className="Imageopt" src={image} alt={alt} />
               <h1 className="Text">{title}</h1>
               <p className="Text">{artist}</p>
-              <div className="Center">
-                <button onClick={alert} className="Button">
-                  Select
-                </button>
-              </div>
             </td>
           </tr>
         </tbody>
