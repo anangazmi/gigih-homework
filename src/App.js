@@ -1,12 +1,11 @@
 import "./App.css";
 import React from "react";
-import Auth from "./pages/home/Auth";
+import AuthSpotify from "./pages/auth/AuthSpotify";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="title">Song List</h1>
-      <Auth />
+      <AuthSpotify />
     </div>
   );
 }
