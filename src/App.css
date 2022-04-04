@@ -23,6 +23,19 @@ body {
   }
 }
 
+textarea {
+  width: 185px;
+  resize: none;  
+}
+
+.form-playlist {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

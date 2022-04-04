@@ -1,0 +1,27 @@
+.Wrapper {
+  padding-left: 10px;
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form-search {
+  margin: 20px;
+}
+
+.input-search {
+  border: 0;
+  padding: 10px;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.input-submit {
+  background-color: #1db954;
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 0px 20px 20px 0px;
+}
