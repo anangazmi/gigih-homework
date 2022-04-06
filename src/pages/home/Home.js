@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import SearchForm from "../../component/Search";
-import Track from "../../component/CardSong";
+import Song from "../../component/CardSong";
 import "../../App.css";
 import Button from "../../component/Button";
 
 export default function Home({ onChange, onSubmit, tracks, token }) {
   const [selected, setSelected] = useState([]);
   const [isCombine, setCombine] = useState([]);
-  // * Untuk mendapatkan current user
+  // * Get current user
   const [isUser, setUser] = useState("");
-  // * Untuk membuat playlist
+  // * create playlist
   const [isPlaylist, setPlaylist] = useState([]);
   // * Add track to playlist
   const [trackPlaylist, setTrackPlaylist] = useState([]);
@@ -78,6 +78,8 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
         console.log(data);
         setTrackPlaylist(data.items);
       });
+
+    setSelected([]);
   };
 
   const handleClick = (track) => {
@@ -102,7 +104,6 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
         .then((res) => res.json())
         .then((result) => result);
       setUser(response);
-      // console.log(response);
     };
     getUsers();
   }, [token]);
@@ -120,7 +121,7 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
       <>
         {isCombine.map((track, index) => (
           <React.Fragment key={index}>
-            <Track
+            <Song
               images={track.album.images[1].url}
               title={track.name}
               artist={track.artists[0].name}
@@ -128,8 +129,7 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
               onClick={() => handleClick(track)}
             >
               {track.isSelected ? "Deselect" : "Select"}
-              {/* {isSelected ? "Deselect" : "Select"} */}
-            </Track>
+            </Song>
           </React.Fragment>
         ))}
       </>
@@ -141,6 +141,7 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
       <h1>Create Playlist</h1>
 
       <p>Name: {isUser.display_name}</p>
+
       <p>ID: {isUser.id}</p>
 
       <form className="form-playlist" onSubmit={createPlaylist}>
@@ -166,20 +167,18 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
       <h3>{isPlaylist.description}</h3>
       <div className="Wrapper">
         {trackPlaylist.map((item, index) => (
-          <React.Fragment key={index}>
-            <Track
+          <React.Fragment key={item.track.id}>
+            <Song
               images={item.track.album.images[0].url}
               title={item.track.name}
               artist={item.track.artists[0].name}
               alt={item.track.name}
             >
               Play
-            </Track>
+            </Song>
           </React.Fragment>
         ))}
       </div>
-
-      {/* <p>{isPlaylist.tracks.total}</p> */}
 
       <SearchForm onChange={onChange} onSubmit={onSubmit} />
 
@@ -188,7 +187,7 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
       <div className="Wrapper">
         {selected.map((track, index) => (
           <React.Fragment key={index}>
-            <Track
+            <Song
               images={track.album.images[1].url}
               title={track.name}
               artist={track.artists[0].name}
@@ -196,7 +195,7 @@ export default function Home({ onChange, onSubmit, tracks, token }) {
               onClick={() => handleClick(track)}
             >
               Deselect
-            </Track>
+            </Song>
           </React.Fragment>
         ))}
       </div>

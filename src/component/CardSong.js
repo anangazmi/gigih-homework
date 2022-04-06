@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import Button from "./Button";
 
-const Track = ({ images, title, artist, onClick, children }) => {
+const Song = ({ images, title, artist, onClick, children }) => {
   return (
     <>
       <table className="card">
@@ -21,4 +21,4 @@ const Track = ({ images, title, artist, onClick, children }) => {
   );
 };
 
-export default Track;
+export default Song;
