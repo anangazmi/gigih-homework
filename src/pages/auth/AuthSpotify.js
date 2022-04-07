@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Auth.css";
-import Button from "../../component/Button";
+import Button from "../../component/button/Button";
 import useSearch from "../../hooks/useSearch";
 import Home from "../home/Home";
 import { useDispatch, useSelector } from "react-redux";

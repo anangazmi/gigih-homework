@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import SearchForm from "../../component/Search";
-import Song from "../../component/CardSong";
+import SearchForm from "../../component/form-search/Search";
+import Song from "../../component/track-components/CardSong";
 import "../../App.css";
-import Button from "../../component/Button";
+import Button from "../../component/button/Button";
 
 export default function Home({ onChange, onSubmit, tracks, token }) {
   const [selected, setSelected] = useState([]);
