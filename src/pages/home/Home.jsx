@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import SearchForm from '../../component/form-search/Search';
-import Song from '../../component/track-components/CardSong';
-import '../../App.css';
-import Button from '../../component/button/Button';
-import useSearch from '../../hooks/useSearch';
 import { tokenAuth } from '../../redux/auth-actions';
+import SearchForm from '../../component/form-search/Search';
+import Button from '../../component/button/Button';
+import Song from '../../component/track-components/CardSong';
 import CreatePlaylist from '../../component/create-playlist/CreatePlaylist';
+import '../../App.css';
+import useSearch from '../../hooks/useSearch';
 
 export default function Home() {
   const [searchKey, searchResults, setSearchResults, handleSearch] =
     useSearch();
   const [selected, setSelected] = useState([]);
   const [isCombine, setCombine] = useState([]);
-  // * Untuk mendapatkan current user
+  // * Get current user
   const [isUser, setUser] = useState('');
-  // * Untuk membuat playlist
+  // * Create playlist
   const [isPlaylist, setPlaylist] = useState([]);
   // * Add track to playlist
   const [trackPlaylist, setTrackPlaylist] = useState([]);
