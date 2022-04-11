@@ -1,17 +1,19 @@
 const initialState = {
-  token: "",
+  token: '',
 };
 
-function authReducer(state = initialState, action) {
-  switch (action.type) {
-    case "GET_TOKEN":
+const reducer = (state = initialState, { type, payload } = {}) => {
+  switch (type) {
+    case 'GET_TOKEN': {
       return {
         ...state,
-        token: action.payload,
+        token: payload,
       };
+    }
+
     default:
       return state;
   }
-}
+};
 
-export default authReducer;
+export default reducer;
