@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import './Auth.css';
 import { useDispatch } from 'react-redux';
 import Button from '../../component/button/Button';
-import { tokenAuth } from '../../redux/auth-actions';
+import { setToken } from '../../redux/slice';
 
 const { REACT_APP_CLIENT_ID } = process.env;
 const SCOPES = 'playlist-modify-private';
@@ -27,7 +26,7 @@ export default function AuthSpotify() {
         .find((elem) => elem.startsWith('access_token'))
         .split('=')[1];
       window.location.hash = '';
-      dispatch(tokenAuth(token));
+      dispatch(setToken(token));
     }
   });
 

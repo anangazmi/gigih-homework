@@ -1,8 +1,8 @@
-function tokenAuth(token) {
-  return {
-    type: 'GET_TOKEN',
-    payload: token,
-  };
-}
+// function tokenAuth(token) {
+//   return {
+//     type: 'GET_TOKEN',
+//     payload: token,
+//   };
+// }
 
-export { tokenAuth };
+// export { tokenAuth };

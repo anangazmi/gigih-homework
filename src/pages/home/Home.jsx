@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { tokenAuth } from '../../redux/auth-actions';
 import SearchForm from '../../component/form-search/Search';
 import Button from '../../component/button/Button';
 import Song from '../../component/track-components/CardSong';
 import CreatePlaylist from '../../component/create-playlist/CreatePlaylist';
-import '../../App.css';
 import useSearch from '../../hooks/useSearch';
+import { setToken } from '../../redux/slice';
 
 export default function Home() {
-  const [searchKey, searchResults, setSearchResults, handleSearch] =
-    useSearch();
+  const [searchKey, searchResults, setSearchResults, handleSearch] = useSearch();
   const [selected, setSelected] = useState([]);
   const [isCombine, setCombine] = useState([]);
   // * Get current user
@@ -89,7 +87,7 @@ export default function Home() {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
       .then((res) => res.json())
       .then((data) => {
@@ -111,7 +109,7 @@ export default function Home() {
 
   const logout = () => {
     window.localStorage.removeItem('token');
-    dispatch(tokenAuth(''));
+    dispatch(setToken(''));
   };
 
   useEffect(() => {
@@ -143,9 +141,10 @@ export default function Home() {
       {isCombine.map((track) => (
         <React.Fragment key={track.id}>
           <Song
-            images={track.album.images[1].url}
+            images={track.album.images[0].url}
             title={track.name}
             artist={track.artists[0].name}
+            albumName={track.album.name}
             alt={track.name}
             onClick={() => handleClick(track)}
           >
@@ -158,8 +157,6 @@ export default function Home() {
 
   return (
     <>
-      <h1>Create Playlist</h1>
-
       <CreatePlaylist
         profile={isUser}
         createSubmit={createPlaylist}
@@ -173,13 +170,14 @@ export default function Home() {
 
       {selected.length === 0 ? null : <h1>Selected List</h1>}
 
-      <div className="Wrapper">
+      <div className="track-container">
         {selected.map((track) => (
           <React.Fragment key={track.id}>
             <Song
-              images={track.album.images[1].url}
+              images={track.album.images[0].url}
               title={track.name}
               artist={track.artists[0].name}
+              albumName={track.album.name}
               alt={track.name}
               onClick={() => handleClick(track)}
             >
@@ -193,7 +191,7 @@ export default function Home() {
       )}
 
       {isCombine.length === 0 ? null : <h1>Track List</h1>}
-      <div className="Wrapper">{renderItem()}</div>
+      <div className="track-container">{renderItem()}</div>
       <Button onClick={logout}> Log Out</Button>
     </>
   );

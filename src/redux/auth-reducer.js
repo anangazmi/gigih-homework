@@ -1,19 +1,19 @@
-const initialState = {
-  token: '',
-};
+// const initialState = {
+//   token: '',
+// };
 
-const reducer = (state = initialState, { type, payload } = {}) => {
-  switch (type) {
-    case 'GET_TOKEN': {
-      return {
-        ...state,
-        token: payload,
-      };
-    }
+// const reducer = (state = initialState, { type, payload } = {}) => {
+//   switch (type) {
+//     case 'GET_TOKEN': {
+//       return {
+//         ...state,
+//         token: payload,
+//       };
+//     }
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
 
-export default reducer;
+// export default reducer;
