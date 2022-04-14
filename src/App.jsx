@@ -7,7 +7,7 @@ import { AppRoutes } from './routes/AppRoutes';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App font-sans">
         <AppRoutes />
       </div>
     </Provider>

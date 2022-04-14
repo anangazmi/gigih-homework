@@ -28,13 +28,13 @@ textarea {
   width: 185px;
 }
 
-.form-playlist {
+/* .form-playlist {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-}
+} */
 
 .App-header {
   background-color: #282c34;
@@ -142,7 +142,7 @@ textarea {
   background-color: #1db954;
   border: 0;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px;
   border-radius: 0px 20px 20px 0px;
 }
@@ -196,9 +196,10 @@ textarea {
   margin-bottom: 10%;
 }
 
-.text-input {
+/* .text-input {
   border: 0;
   width: 20%;
+  color: #000;
   padding: 10px;
   margin-bottom: 20px;
-}
+} */

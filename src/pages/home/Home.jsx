@@ -168,8 +168,8 @@ export default function Home() {
 
       <SearchForm onChange={handleSearch} onSubmit={searchTrack} />
 
-      {selected.length === 0 ? null : <h1>Selected List</h1>}
-
+      {selected.length === 0 ? null : <h3 className="text-3xl font-bold underline">Selected List</h3>}
+      <br />
       <div className="track-container">
         {selected.map((track) => (
           <React.Fragment key={track.id}>
@@ -192,6 +192,7 @@ export default function Home() {
 
       {isCombine.length === 0 ? null : <h1>Track List</h1>}
       <div className="track-container">{renderItem()}</div>
+      <br />
       <Button onClick={logout}> Log Out</Button>
     </>
   );
