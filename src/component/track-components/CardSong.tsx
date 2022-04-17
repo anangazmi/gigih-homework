@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Button from '../button/Button';
 
-function Song({ images, title, artist, albumName, onClick, children }) {
+type SongProps = {
+  images:string; 
+  title:string;
+  artist:string;
+  albumName:string;
+  onClick:() => void;
+  children:ReactNode
+}
+
+function Song(props:SongProps) {
+  const {images, title, artist, albumName, onClick, children} = props
   return (
     <table className="card">
       <tbody>
