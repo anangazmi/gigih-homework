@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const { REACT_APP_CLIENT_ID } = process.env;
 const SCOPES = 'playlist-modify-private';
-const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'https://gigih-homework-green.vercel.app';
 
 export default function useAuth() {
   const [token, setToken] = useState('');
