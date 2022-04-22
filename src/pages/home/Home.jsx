@@ -8,7 +8,8 @@ import useSearch from '../../hooks/useSearch';
 import { setToken } from '../../redux/slice';
 
 export default function Home() {
-  const [searchKey, searchResults, setSearchResults, handleSearch] = useSearch();
+  const [searchKey, searchResults, setSearchResults, handleSearch] =
+    useSearch();
   const [selected, setSelected] = useState([]);
   const [isCombine, setCombine] = useState([]);
   // * Get current user
@@ -87,7 +88,7 @@ export default function Home() {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-      },
+      }
     )
       .then((res) => res.json())
       .then((data) => {
@@ -157,18 +158,17 @@ export default function Home() {
 
   return (
     <>
-      <CreatePlaylist
-        profile={isUser}
-        createSubmit={createPlaylist}
-        handleInput={handleInputPlaylist}
-        inputValue={inputPlaylist}
-        playlist={isPlaylist}
-        trackPlaylist={trackPlaylist}
-      />
-
+      <br />
       <SearchForm onChange={handleSearch} onSubmit={searchTrack} />
-
-      {selected.length === 0 ? null : <h3 className="text-3xl font-bold underline">Selected List</h3>}
+      <br />
+      {isCombine.length === 0 ? null : (
+        <h3 className="text-3xl font-bold underline">Track List</h3>
+      )}
+      <br />
+      <div className="track-container">{renderItem()}</div>
+      {selected.length === 0 ? null : (
+        <h3 className="text-3xl font-bold underline">Selected List</h3>
+      )}
       <br />
       <div className="track-container">
         {selected.map((track) => (
@@ -190,9 +190,14 @@ export default function Home() {
         <Button onClick={addToPlayList}>Save to Playlist</Button>
       )}
 
-      {isCombine.length === 0 ? null : <h1>Track List</h1>}
-      <div className="track-container">{renderItem()}</div>
-      <br />
+      <CreatePlaylist
+        profile={isUser}
+        createSubmit={createPlaylist}
+        handleInput={handleInputPlaylist}
+        inputValue={inputPlaylist}
+        playlist={isPlaylist}
+        trackPlaylist={trackPlaylist}
+      />
       <Button onClick={logout}> Log Out</Button>
     </>
   );
