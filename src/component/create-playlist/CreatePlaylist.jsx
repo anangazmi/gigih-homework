@@ -15,11 +15,11 @@ export default function CreatePlaylist(props) {
     <div className="playlist-container">
       <h1 className="text-3xl font-bold underline">Create Playlist</h1>
       <br />
-      <div>
+      {/* <div>
         <h3>{profile.display_name}</h3>
         <p>{`ID ${profile.id}`}</p>
       </div>
-      <br />
+      <br /> */}
       <div className="justify-center flex">
         <form className="flex-col w-1/4" onSubmit={createSubmit}>
           <input

@@ -7,7 +7,6 @@ export const authSlice = createSlice({
   },
   reducers: {
     setToken: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.token = action.payload;
     },
   },

@@ -31,8 +31,30 @@ export default function AuthSpotify() {
   });
 
   return (
-    <div className="auth-wrap">
-      <Button onClick={redirectToSpotify}>Login Spotify</Button>
-    </div>
+    <>
+      <div className="mx-auto max-w-4xl px-4">
+        <div className="flex h-screen flex-col">
+          <div className="py-4">
+            <h2 className="font-sans font-extrabold text-xl text-green-500">
+              Gigih Playlist
+            </h2>
+          </div>
+          <div className="flex grow flex-col justify-center text-center">
+            <div className="space-y-3">
+              <h1 className="font-sans font-bold">
+                Welcome to Gigih Playlist!
+              </h1>
+              <p>This project is a implementation of spotify&apos;s playlist</p>
+              <div className="auth-wrap">
+                <Button onClick={redirectToSpotify}>Login with Spotify</Button>
+              </div>
+              <div className="flex justify-center">
+                <p className="text-sm">©2022 Azmi Irfala</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
