@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import SearchForm from '../form-search/Search';
 
 export default function Header() {
   return (
@@ -9,9 +8,6 @@ export default function Header() {
         <div class="mx-5 my-2">
           <Link to="/home"> Home </Link>
         </div>
-        {/* <div class="mx-5 my-2">
-          <SearchForm />
-        </div> */}
       </div>
       <Outlet />
     </div>
